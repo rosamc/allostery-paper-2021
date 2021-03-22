@@ -1,0 +1,6 @@
+This repository contains the code for reproducing Figure XX in the paper Biddle, Martinez-Corral, Wong, Gunawardena, 2021, first published in bioRxiv with doi: https://doi.org/10.1101/2020.12.10.420117 and finally published in XX. Please cite XX if using this code in the future. 
+
+The notebooks step1, and step3 should be executed in order to be able to reproduce the Figure.
+
+Notebook step2 shows a couple examples of the parameter set search. The search was initially done in the HMS O2 cluster, and code to reproduce such search and analyse it is in folder clustersearch.
+
