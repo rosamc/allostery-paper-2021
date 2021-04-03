@@ -183,13 +183,13 @@ void GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, vector<long doubl
     T numdeg4=(4.0/6)*coeffs_43[4]+(4.0/6)*coeffs_44[4]+(4.0/6)*coeffs_45[4]+(4.0/6)*coeffs_46[4]+(4.0/6)*coeffs_47[4]+(4.0/6)*coeffs_48[4]+(4.0/6)*coeffs_49[4]+(4.0/6)*coeffs_50[4]+(4.0/6)*coeffs_51[4]+(4.0/6)*coeffs_52[4]+(4.0/6)*coeffs_53[4]+(4.0/6)*coeffs_54[4]+(4.0/6)*coeffs_55[4]+(4.0/6)*coeffs_56[4]+(4.0/6)*coeffs_57[4];
     T numdeg5=(5.0/6)*coeffs_58[5]+(5.0/6)*coeffs_59[5]+(5.0/6)*coeffs_60[5]+(5.0/6)*coeffs_61[5]+(5.0/6)*coeffs_62[5]+(5.0/6)*coeffs_63[5];
     T numdeg6=(6.0/6)*coeffs_64[6];
-    T dendeg0=1*coeffs_1[0];
-    T dendeg1=1*coeffs_2[1]+1*coeffs_3[1]+1*coeffs_4[1]+1*coeffs_5[1]+1*coeffs_6[1]+1*coeffs_7[1];
-    T dendeg2=1*coeffs_8[2]+1*coeffs_9[2]+1*coeffs_10[2]+1*coeffs_11[2]+1*coeffs_12[2]+1*coeffs_13[2]+1*coeffs_14[2]+1*coeffs_15[2]+1*coeffs_16[2]+1*coeffs_17[2]+1*coeffs_18[2]+1*coeffs_19[2]+1*coeffs_20[2]+1*coeffs_21[2]+1*coeffs_22[2];
-    T dendeg3=1*coeffs_23[3]+1*coeffs_24[3]+1*coeffs_25[3]+1*coeffs_26[3]+1*coeffs_27[3]+1*coeffs_28[3]+1*coeffs_29[3]+1*coeffs_30[3]+1*coeffs_31[3]+1*coeffs_32[3]+1*coeffs_33[3]+1*coeffs_34[3]+1*coeffs_35[3]+1*coeffs_36[3]+1*coeffs_37[3]+1*coeffs_38[3]+1*coeffs_39[3]+1*coeffs_40[3]+1*coeffs_41[3]+1*coeffs_42[3];
-    T dendeg4=1*coeffs_43[4]+1*coeffs_44[4]+1*coeffs_45[4]+1*coeffs_46[4]+1*coeffs_47[4]+1*coeffs_48[4]+1*coeffs_49[4]+1*coeffs_50[4]+1*coeffs_51[4]+1*coeffs_52[4]+1*coeffs_53[4]+1*coeffs_54[4]+1*coeffs_55[4]+1*coeffs_56[4]+1*coeffs_57[4];
-    T dendeg5=1*coeffs_58[5]+1*coeffs_59[5]+1*coeffs_60[5]+1*coeffs_61[5]+1*coeffs_62[5]+1*coeffs_63[5];
-    T dendeg6=1*coeffs_64[6];
+    T dendeg0=coeffs_1[0];
+    T dendeg1=coeffs_2[1]+coeffs_3[1]+coeffs_4[1]+coeffs_5[1]+coeffs_6[1]+coeffs_7[1];
+    T dendeg2=coeffs_8[2]+coeffs_9[2]+coeffs_10[2]+coeffs_11[2]+coeffs_12[2]+coeffs_13[2]+coeffs_14[2]+coeffs_15[2]+coeffs_16[2]+coeffs_17[2]+coeffs_18[2]+coeffs_19[2]+coeffs_20[2]+coeffs_21[2]+coeffs_22[2];
+    T dendeg3=coeffs_23[3]+coeffs_24[3]+coeffs_25[3]+coeffs_26[3]+coeffs_27[3]+coeffs_28[3]+coeffs_29[3]+coeffs_30[3]+coeffs_31[3]+coeffs_32[3]+coeffs_33[3]+coeffs_34[3]+coeffs_35[3]+coeffs_36[3]+coeffs_37[3]+coeffs_38[3]+coeffs_39[3]+coeffs_40[3]+coeffs_41[3]+coeffs_42[3];
+    T dendeg4=coeffs_43[4]+coeffs_44[4]+coeffs_45[4]+coeffs_46[4]+coeffs_47[4]+coeffs_48[4]+coeffs_49[4]+coeffs_50[4]+coeffs_51[4]+coeffs_52[4]+coeffs_53[4]+coeffs_54[4]+coeffs_55[4]+coeffs_56[4]+coeffs_57[4];
+    T dendeg5=coeffs_58[5]+coeffs_59[5]+coeffs_60[5]+coeffs_61[5]+coeffs_62[5]+coeffs_63[5];
+    T dendeg6=coeffs_64[6];
     num={numdeg0,numdeg1,numdeg2,numdeg3,numdeg4,numdeg5,numdeg6};
     den={dendeg0,dendeg1,dendeg2,dendeg3,dendeg4,dendeg5,dendeg6};
 }
@@ -358,6 +358,38 @@ void rhos_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, vector<long 
     rhos={rho_1,rho_2,rho_3,rho_4,rho_5,rho_6,rho_7,rho_8,rho_9,rho_10,rho_11,rho_12,rho_13,rho_14,rho_15,rho_16,rho_17,rho_18,rho_19,rho_20,rho_21,rho_22,rho_23,rho_24,rho_25,rho_26,rho_27,rho_28,rho_29,rho_30,rho_31,rho_32,rho_33,rho_34,rho_35,rho_36,rho_37,rho_38,rho_39,rho_40,rho_41,rho_42,rho_43,rho_44,rho_45,rho_46,rho_47,rho_48,rho_49,rho_50,rho_51,rho_52,rho_53,rho_54,rho_55,rho_56,rho_57,rho_58,rho_59,rho_60,rho_61,rho_62,rho_63,rho_64};
 }
 
+double GRFatxonly(vector<long double>&num, vector<long double>&den, double varGRFval){    typedef long double T;
+
+    
+    T numsum=0;
+    T densum=0;
+    std::vector<T>::size_type i;
+    for (i=0;i<num.size();i++){
+        numsum+=num[i]*pow(varGRFval,(int)i);
+    }
+    for (i=0;i<den.size();i++){
+        densum+=den[i]*pow(varGRFval,(int)i);
+    }
+    double result=numsum/densum;
+    return result;
+    
+}
+
+
+double interface_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, double varGRFval ) {
+
+    typedef long double T;
+
+    vector<T> num;
+    vector<T> den;
+    double result;
+    
+    GRF_CG_c4_N6_samesitesFalse_x(parsar,num,den);
+
+    result=GRFatxonly(num,den,varGRFval);
+    return result;
+}
+
 py::array_t<double> interfaceps_s_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, bool verbose=false ) {
     typedef long double T;
 
@@ -384,7 +416,7 @@ py::array_t<double> interfaceps_a_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<doub
     vector<T> den;
     vector<double>result;
     GRF_CG_c4_N6_samesitesFalse_x(parsar,num,den);
-    result=compute_pos_stp(num,den,"aberth",verbose);
+    result=compute_pos_stp(num,den,"aberth", verbose);
 
     py::array_t<double> resultpy = py::array_t<double>(3);
     py::buffer_info bufresultpy = resultpy.request();
@@ -423,28 +455,6 @@ py::array_t<double> interfacemonotonic_GRF_CG_c4_N6_samesitesFalse_x(py::array_t
     }
     return resultpy;
     
-    }
-
-double interface_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, double varGRFval ) {
-
-    typedef long double T;
-
-    vector<T> num;
-    vector<T> den;
-    
-    GRF_CG_c4_N6_samesitesFalse_x(parsar,num,den);
-
-    T numsum=0;
-    T densum=0;
-    std::vector<T>::size_type i;
-    for (i=0;i<num.size();i++){
-    numsum+=num[i]*pow(varGRFval,(int)i);
-    }
-    for (i=0;i<den.size();i++){
-    densum+=den[i]*pow(varGRFval,(int)i);
-    }
-    double result=numsum/densum;
-    return result;
     }
 
 py::array_t<double> interface_rhos_GRF_CG_c4_N6_samesitesFalse_x(py::array_t<double> parsar, double varGRFval ) {
